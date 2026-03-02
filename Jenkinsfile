@@ -2,6 +2,16 @@ pipeline {
     agent any
 
     stages {
+
+        stage('Pre Build'){
+            steps{
+                sh '''
+                    echo "Pre Build"
+                    echo Build Id: ${BUILD_ID}
+                    echo Build URL: ${BUILD_URL}
+                '''
+            }
+        }
         stage('Build') {
             agent {
                 docker {
